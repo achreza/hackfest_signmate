@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAvmIpRJsZmjD9BWcaKvG3cBI38yIlbL6I</string>
+	<key>GCM_SENDER_ID</key>
+	<string>911942558859</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kramotak.hackfestSignmate</string>
+	<key>PROJECT_ID</key>
+	<string>signmate-5c224</string>
+	<key>STORAGE_BUCKET</key>
+	<string>signmate-5c224.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:911942558859:ios:7a2ca7284224bdcec2e08e</string>
+</dict>
+</plist>
