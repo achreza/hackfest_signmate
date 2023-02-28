@@ -37,7 +37,7 @@ class SpeechController extends GetxController {
   }
 
   stopListening() async {
-    text.value = await speech.lastRecognizedWords;
+    // text.value = await speech.lastRecognizedWords;
     await speech.stop();
     isListening.value = false;
   }
