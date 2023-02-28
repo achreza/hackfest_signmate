@@ -31,15 +31,14 @@ class SpeechController extends GetxController {
     var available = await speech.initialize();
     if (available) {
       speech.listen(onResult: (result) {
-        print(result.recognizedWords);
+        text.value = result.recognizedWords;
       });
     }
-    print('coba');
-    update();
   }
 
-  stopListening() {
+  stopListening() async {
+    text.value = await speech.lastRecognizedWords;
+    await speech.stop();
     isListening.value = false;
-    update();
   }
 }
