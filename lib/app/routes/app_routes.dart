@@ -10,6 +10,7 @@ abstract class Routes {
   static const ONBOARDING = _Paths.ONBOARDING;
   static const SIGNSCAN = _Paths.SIGNSCAN;
   static const SPEECH = _Paths.SPEECH;
+  static const DICTIONARY = _Paths.DICTIONARY;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const ONBOARDING = '/onboarding';
   static const SIGNSCAN = '/signscan';
   static const SPEECH = '/speech';
+  static const DICTIONARY = '/dictionary';
 }

@@ -2,6 +2,9 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/dictionary/bindings/dictionary_binding.dart';
+import '../modules/dictionary/views/alphabet.dart';
+import '../modules/dictionary/views/dictionary_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
@@ -18,7 +21,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ONBOARDING;
+  static const INITIAL = Routes.DICTIONARY;
 
   static final routes = [
     GetPage(
@@ -50,6 +53,11 @@ class AppPages {
       name: _Paths.SPEECH,
       page: () => const SpeechView(),
       binding: SpeechBinding(),
+    ),
+    GetPage(
+      name: _Paths.DICTIONARY,
+      page: () => const DictionaryView(),
+      binding: DictionaryBinding(),
     ),
   ];
 }

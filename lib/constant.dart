@@ -4,6 +4,8 @@ import 'package:hexcolor/hexcolor.dart';
 var primaryColor = HexColor("#7FBA4E");
 var hoverColor = HexColor("#94C56B");
 var pressedColor = HexColor("#699B41");
+var darkColor = HexColor("##4c702e");
+var lightColor = HexColor('#BFDCA6');
 
 ThemeData themeData = ThemeData(
     primaryColor: primaryColor,

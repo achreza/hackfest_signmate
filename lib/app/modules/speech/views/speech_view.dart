@@ -39,7 +39,7 @@ class SpeechView extends GetView<SpeechController> {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: const Text('Speech To Text'),
-        centerTitle: true,
+        centerTitle: false,
       ),
       body: SingleChildScrollView(
         child: Container(

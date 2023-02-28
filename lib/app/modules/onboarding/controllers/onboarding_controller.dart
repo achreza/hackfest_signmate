@@ -30,7 +30,6 @@ class OnboardingController extends GetxController
   void onInit() {
     super.onInit();
     tabController = TabController(length: pages.length, vsync: this);
-    // getUsers();
   }
 
   @override
@@ -44,8 +43,7 @@ class OnboardingController extends GetxController
   List users = [];
 
   Future getUsers() async {
-    var data = await db.collection('users').get();
+    var data = await db.collection('handsign').get();
     users = data.docs;
-    print(users);
   }
 }
