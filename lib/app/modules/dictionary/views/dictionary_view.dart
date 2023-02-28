@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:hackfest_signmate/app/modules/dictionary/views/emoticon.dart';
+import 'package:hackfest_signmate/app/modules/dictionary/views/number.dart';
 import 'package:hackfest_signmate/constant.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../controllers/dictionary_controller.dart';
+import 'alphabet.dart';
 
 class DictionaryView extends GetView<DictionaryController> {
   const DictionaryView({Key? key}) : super(key: key);
@@ -73,49 +77,37 @@ class VideoTutorials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var controller = Get.find<DictionaryController>();
     return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 10.h),
-              width: Get.width,
-              height: 160.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: primaryColor,
-                  width: 2,
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10.h),
-              width: Get.width,
-              height: 160.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: primaryColor,
-                  width: 2,
-                ),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10.h),
-              width: Get.width,
-              height: 160.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(
-                  color: primaryColor,
-                  width: 2,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: Obx(() => controller.isLoadingYoutubeTutorials.value == true
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : ListView.builder(
+              itemCount: controller.youtubeTutorials.length,
+              itemBuilder: (context, index) {
+                var thumbnail = controller.getYoutubeThumbnail(
+                    controller.youtubeTutorials[index]['url']);
+                return GestureDetector(
+                  onTap: () {
+                    launchUrl(
+                        Uri.parse(controller.youtubeTutorials[index]['url']));
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 10.h),
+                    width: Get.width,
+                    height: 215.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: NetworkImage(thumbnail),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            )),
     );
   }
 }
@@ -133,16 +125,36 @@ class Categories extends StatelessWidget {
       shrinkWrap: true,
       crossAxisSpacing: 20,
       children: [
-        CategoryItem('Alphabet', 'abc.png'),
-        CategoryItem('Emoticon', 'emot.png'),
-        CategoryItem('Number', 'number.png'),
+        CategoryItem(context, 'Alphabet', 'abc.png'),
+        CategoryItem(context, 'Emoticon', 'emot.png'),
+        CategoryItem(context, 'Number', 'number.png'),
       ],
     );
   }
 
-  GestureDetector CategoryItem(text, image) {
+  GestureDetector CategoryItem(context, text, image) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (text == 'Alphabet') {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Alphabet(),
+            ),
+          );
+        } else if (text == 'Emoticon') {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Emoticon(),
+            ),
+          );
+        } else if (text == 'Number') {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => Number(),
+            ),
+          );
+        }
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),

@@ -4,8 +4,8 @@ import 'package:hackfest_signmate/constant.dart';
 
 import '../controllers/dictionary_controller.dart';
 
-class Alphabet extends StatelessWidget {
-  const Alphabet({super.key});
+class Number extends StatelessWidget {
+  const Number({super.key});
 
   @override
   Widget build(BuildContext context) {

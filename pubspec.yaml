@@ -17,6 +17,7 @@ dependencies:
   speech_to_text: ^6.1.1
   avatar_glow: ^2.0.2
   cloud_firestore: ^4.4.3
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_lints: ^2.0.0
