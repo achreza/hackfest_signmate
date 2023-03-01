@@ -142,7 +142,7 @@ Widget getStarted() {
               backgroundColor: MaterialStateProperty.all(primaryColor),
             ),
             onPressed: () {
-              Get.offAllNamed(Routes.SPEECH);
+              Get.offAllNamed(Routes.LOGIN);
             },
             child: Text(
               'Get Started',
