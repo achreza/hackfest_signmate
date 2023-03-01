@@ -6,6 +6,8 @@ import '../modules/dictionary/bindings/dictionary_binding.dart';
 import '../modules/dictionary/views/dictionary_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/interpreter/bindings/interpreter_binding.dart';
+import '../modules/interpreter/views/interpreter_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
@@ -24,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SIGNMATE;
+  static const INITIAL = Routes.INTERPRETER;
 
   static final routes = [
     GetPage(
@@ -71,6 +73,11 @@ class AppPages {
       name: _Paths.SIGNMATE,
       page: () => const SignmateView(),
       binding: SignmateBinding(),
+    ),
+    GetPage(
+      name: _Paths.INTERPRETER,
+      page: () => const InterpreterView(),
+      binding: InterpreterBinding(),
     ),
   ];
 }
