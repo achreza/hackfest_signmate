@@ -48,6 +48,9 @@ class DictionaryView extends GetView<DictionaryController> {
               height: 20.h,
             ),
             Categories(),
+            SizedBox(
+              height: 20.h,
+            ),
             Container(
               width: Get.width,
               child: Text(

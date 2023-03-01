@@ -30,6 +30,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/categories/
+    - assets/images/social/
 
   fonts:
     - family: SF Pro Display
