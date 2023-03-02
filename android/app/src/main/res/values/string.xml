@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hackfest SignMate</string>
+    <string name="facebook_app_id">898803397939646</string>
+    <string name="fb_login_protocol_scheme">fb898803397939646</string>
+    <string name="facebook_client_token">25ea7288e815c0c945a3b8deb17e6dfb</string>
+</resources>
+

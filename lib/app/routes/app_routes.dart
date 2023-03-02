@@ -12,6 +12,8 @@ abstract class Routes {
   static const SPEECH = _Paths.SPEECH;
   static const DICTIONARY = _Paths.DICTIONARY;
   static const LOGIN = _Paths.LOGIN;
+  static const SIGNMATE = _Paths.SIGNMATE;
+  static const INTERPRETER = _Paths.INTERPRETER;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const SPEECH = '/speech';
   static const DICTIONARY = '/dictionary';
   static const LOGIN = '/login';
+  static const SIGNMATE = '/signmate';
+  static const INTERPRETER = '/interpreter';
 }
