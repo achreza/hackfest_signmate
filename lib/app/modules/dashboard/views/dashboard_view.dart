@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+
+import 'package:hackfest_signmate/app/modules/dashboard/views/signscan_view.dart';
+
 import 'package:hackfest_signmate/app/routes/app_pages.dart';
+
 import 'package:hackfest_signmate/constant.dart';
 
 import '../controllers/dashboard_controller.dart';

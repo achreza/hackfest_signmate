@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '911942558859',
     projectId: 'signmate-5c224',
     storageBucket: 'signmate-5c224.appspot.com',
-    iosClientId: '911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m.apps.googleusercontent.com',
+    iosClientId:
+        '911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m.apps.googleusercontent.com',
     iosBundleId: 'com.kramotak.hackfestSignmate',
   );
 }
