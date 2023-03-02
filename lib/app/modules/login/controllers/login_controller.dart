@@ -47,14 +47,12 @@ class LoginController extends GetxController {
         password: passwordLogin.text,
       );
       User user = userCredential.user!;
-      print('Logged in as ${user.email}');
       Get.snackbar('Login', 'Login in as ${user.email}');
       emailDaftar.clear();
       passwordDaftar.clear();
-      Get.offAllNamed(Routes.DASHBOARD);
+      Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        Get.snackbar('Login', 'No user found for that email.');
       } else if (e.code == 'wrong-password') {
         Get.snackbar('Login', 'Wrong password provided for that user.');
       } else {
@@ -78,13 +76,10 @@ class LoginController extends GetxController {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       User user = userCredential.user!;
-      print('Logged in as ${user.displayName}');
-      Get.offAllNamed(Routes.DASHBOARD);
+      Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
-      print('Failed to sign in with Google: $e');
       Get.snackbar('Login', 'Failed to sign in with Google: $e');
     } catch (e) {
-      print('Failed to sign in with Google: $e');
       Get.snackbar('Login', 'Failed to sign in with Google: $e');
     }
   }
@@ -97,9 +92,14 @@ class LoginController extends GetxController {
       UserCredential userCredential =
           await _auth.signInWithCredential(credential);
       User user = userCredential.user!;
-      print('Logged in as ${user.displayName}');
+      Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
-      print('Failed to sign in with Facebook: $e');
+      if (e.code == 'account-exists-with-different-credential') {
+        Get.snackbar(
+            'Login', 'The account already exists with a different credential.');
+      } else {
+        Get.snackbar('Login', 'Failed to sign in with Facebook');
+      }
     }
   }
 

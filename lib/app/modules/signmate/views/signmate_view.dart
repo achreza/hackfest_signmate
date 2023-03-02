@@ -20,44 +20,46 @@ class SignmateView extends GetView<SignmateController> {
         ),
         centerTitle: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Heading(),
-            SizedBox(
-              height: 30.h,
-            ),
-            //categories
-            Container(
-              width: Get.width,
-              child: Text(
-                'Place Categories',
-                style: TextStyle(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w600,
-                    letterSpacing: 1,
-                    color: Colors.black),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              Heading(),
+              SizedBox(
+                height: 30.h,
               ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Column(
-              children: [
-                PlaceCategories(context, 'Hospital Care',
-                    'Hospital and clinics', 'health.png'),
-                PlaceCategories(
-                    context, 'Food', 'Restaurants and Cafes', 'food.png'),
-                PlaceCategories(context, 'Entertainment', 'Recreation Places',
-                    'emoticon.png'),
-                PlaceCategories(context, 'Learning Center', 'School Center',
-                    'learning_center.png'),
-                PlaceCategories(
-                    context, 'Other Categories', '', 'other_categories.png'),
-              ],
-            )
-          ],
+              //categories
+              Container(
+                width: Get.width,
+                child: Text(
+                  'Place Categories',
+                  style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 1,
+                      color: Colors.black),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Column(
+                children: [
+                  PlaceCategories(context, 'Hospital Care',
+                      'Hospital and clinics', 'health.png'),
+                  PlaceCategories(
+                      context, 'Food', 'Restaurants and Cafes', 'food.png'),
+                  PlaceCategories(context, 'Entertainment', 'Recreation Places',
+                      'emoticon.png'),
+                  PlaceCategories(context, 'Learning Center', 'School Center',
+                      'learning_center.png'),
+                  PlaceCategories(
+                      context, 'Other Categories', '', 'other_categories.png'),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -67,7 +69,7 @@ class SignmateView extends GetView<SignmateController> {
       BuildContext context, String title, String subtitle, String image) {
     return Container(
       width: Get.width,
-      height: 90.h,
+      height: 100.h,
       margin: EdgeInsets.only(bottom: 10.h),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
@@ -83,7 +85,6 @@ class SignmateView extends GetView<SignmateController> {
             child: Image.asset('assets/images/place_categories/${image}'),
           ),
           Container(
-            width: (Get.width * 0.4).w,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,

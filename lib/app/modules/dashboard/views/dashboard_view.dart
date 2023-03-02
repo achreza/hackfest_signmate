@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:hackfest_signmate/app/routes/app_pages.dart';
 import 'package:hackfest_signmate/constant.dart';
 
 import '../controllers/dashboard_controller.dart';
@@ -9,76 +10,36 @@ import '../controllers/dashboard_controller.dart';
 class DashboardView extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Container(
-            width: Get.width,
-            height: 250.h,
-            padding: EdgeInsets.symmetric(horizontal: 30.w),
-            decoration: new BoxDecoration(
-              color: primaryColor,
-              borderRadius:
-                  BorderRadius.vertical(bottom: Radius.elliptical(1000, 100)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Welcome, \n',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w300,
-                        height: 1.5,
-                      ),
-                      children: <TextSpan>[
-                        TextSpan(
-                          text: 'John Doe',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Image.asset('assets/images/profile.png')
-              ],
-            ),
+    return Stack(
+      children: [
+        Container(
+          width: Get.width,
+          height: 250.h,
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
+          decoration: new BoxDecoration(
+            color: primaryColor,
+            borderRadius:
+                BorderRadius.vertical(bottom: Radius.elliptical(1000, 100)),
           ),
-          Container(
-            width: Get.width,
-            height: 160.h,
-            margin: EdgeInsets.only(top: 200.h, left: 30.w, right: 30.w),
-            padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(20.r),
-              border: Border.all(color: lightColor, width: 4),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                RichText(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                clipBehavior: Clip.none,
+                child: RichText(
                   text: TextSpan(
-                    text: 'Use your phone to \ncommunicate with \r\n',
+                    text: 'Welcome, \n',
                     style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w700,
-                        height: 1.5,
-                        letterSpacing: 0.5),
+                      color: Colors.white,
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.w300,
+                      height: 1.5,
+                    ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: 'Deaf Mate',
+                        text: controller.user[0].displayName,
                         style: TextStyle(
-                          color: primaryColor,
+                          color: Colors.white,
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w700,
                         ),
@@ -86,59 +47,85 @@ class DashboardView extends GetView<DashboardController> {
                     ],
                   ),
                 ),
-                Image.asset('assets/images/white_skin_hand_phone.png')
-              ],
-            ),
+              ),
+              CircleAvatar(
+                radius: 30.r,
+                backgroundImage: NetworkImage(
+                  controller.user[0].photoURL,
+                ),
+              ),
+            ],
           ),
-          Container(
-              width: Get.width,
-              margin: EdgeInsets.only(
-                  top: 350.h, left: 30.w, right: 30.w, bottom: 0),
-              padding: EdgeInsets.symmetric(vertical: 30.h),
-              child: Text('Feature',
+        ),
+        Container(
+          width: Get.width,
+          height: 160.h,
+          margin: EdgeInsets.only(top: 200.h, left: 30.w, right: 30.w),
+          padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20.r),
+            border: Border.all(color: lightColor, width: 4),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              RichText(
+                text: TextSpan(
+                  text: 'Use your phone to \ncommunicate with \r\n',
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 20.sp,
-                      fontWeight: FontWeight.w700))),
-          Container(
-              width: Get.width,
-              margin: EdgeInsets.only(top: 350.h, left: 30.w, right: 30.w),
-              padding: EdgeInsets.symmetric(vertical: 30.h),
-              child: Features()),
-          Container(
-              width: Get.width,
-              margin: EdgeInsets.only(top: 530.h, left: 30.w, right: 30.w),
-              padding: EdgeInsets.symmetric(vertical: 30.h),
-              child: Text('SignMate Around',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.w700))),
-          Container(
-              width: Get.width,
-              margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
-              padding: EdgeInsets.only(top: 30.h),
-              child: SignMate()),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: primaryColor,
-        currentIndex: 0,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
+                      fontWeight: FontWeight.w700,
+                      height: 1.5,
+                      letterSpacing: 0.5),
+                  children: <TextSpan>[
+                    TextSpan(
+                      text: 'Deaf Mate',
+                      style: TextStyle(
+                        color: primaryColor,
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Image.asset('assets/images/white_skin_hand_phone.png')
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.sign_language_outlined),
-            label: 'Sign',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
-            label: 'Profile',
-          ),
-        ],
-      ),
+        ),
+        Container(
+            width: Get.width,
+            margin:
+                EdgeInsets.only(top: 350.h, left: 30.w, right: 30.w, bottom: 0),
+            padding: EdgeInsets.symmetric(vertical: 30.h),
+            child: Text('Feature',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w700))),
+        Container(
+            width: Get.width,
+            margin: EdgeInsets.only(top: 350.h, left: 30.w, right: 30.w),
+            padding: EdgeInsets.symmetric(vertical: 30.h),
+            child: Features()),
+        Container(
+            width: Get.width,
+            margin: EdgeInsets.only(top: 530.h, left: 30.w, right: 30.w),
+            padding: EdgeInsets.symmetric(vertical: 30.h),
+            child: Text('SignMate Around',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w700))),
+        Container(
+            width: Get.width,
+            margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
+            padding: EdgeInsets.only(top: 30.h),
+            child: SignMate()),
+      ],
     );
   }
 }
@@ -165,7 +152,15 @@ class Features extends StatelessWidget {
 
   GestureDetector FeatureItems(context, text, image) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (text == 'Dictionary') {
+          Get.toNamed(Routes.DICTIONARY);
+        } else if (text == 'SignMate') {
+          Get.toNamed(Routes.SIGNMATE);
+        } else if (text == 'Interpreter') {
+          Get.toNamed(Routes.INTERPRETER);
+        }
+      },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -194,6 +189,8 @@ class Features extends StatelessWidget {
     );
   }
 }
+
+class SignMateView {}
 
 class SignMate extends StatelessWidget {
   const SignMate({
