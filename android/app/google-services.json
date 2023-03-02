@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "911942558859-h21oe38uv8vtdkh54kl8ceaumckg7put.apps.googleusercontent.com",
+          "client_id": "911942558859-c8q5p69964etb1r11p0uaadu3ua1r1vt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.google_ml",
+            "certificate_hash": "b4cb8270cf06d6c8a0a911050cbc95026ace0832"
+          }
+        },
+        {
+          "client_id": "911942558859-j3s929q3le89bauqbc2bo6doaajilrmd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -31,10 +39,10 @@
               "client_type": 3
             },
             {
-              "client_id": "911942558859-f1uotb2lv72d054semo4glt84jppuv1p.apps.googleusercontent.com",
+              "client_id": "911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.googleMl"
+                "bundle_id": "com.kramotak.hackfestSignmate"
               }
             }
           ]
@@ -50,7 +58,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "911942558859-h21oe38uv8vtdkh54kl8ceaumckg7put.apps.googleusercontent.com",
+          "client_id": "911942558859-j39en8r9vaog1fnicl75vnbvlpls3di5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kramotak.hackfest_signmate",
+            "certificate_hash": "b4cb8270cf06d6c8a0a911050cbc95026ace0832"
+          }
+        },
+        {
+          "client_id": "911942558859-j3s929q3le89bauqbc2bo6doaajilrmd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -67,10 +83,10 @@
               "client_type": 3
             },
             {
-              "client_id": "911942558859-f1uotb2lv72d054semo4glt84jppuv1p.apps.googleusercontent.com",
+              "client_id": "911942558859-7bmqgl9q934hv4fsgni8lk7fu136c77m.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.googleMl"
+                "bundle_id": "com.kramotak.hackfestSignmate"
               }
             }
           ]
