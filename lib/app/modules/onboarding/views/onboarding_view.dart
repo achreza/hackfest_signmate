@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:hackfest_signmate/app/routes/app_pages.dart';
 import 'package:hackfest_signmate/constant.dart';
 
 import '../controllers/onboarding_controller.dart';
@@ -140,7 +141,9 @@ Widget getStarted() {
               )),
               backgroundColor: MaterialStateProperty.all(primaryColor),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Get.offAllNamed(Routes.LOGIN);
+            },
             child: Text(
               'Get Started',
               style: TextStyle(

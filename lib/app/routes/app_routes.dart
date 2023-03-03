@@ -9,6 +9,12 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const ONBOARDING = _Paths.ONBOARDING;
   static const SIGNSCAN = _Paths.SIGNSCAN;
+  static const SPEECH = _Paths.SPEECH;
+  static const DICTIONARY = _Paths.DICTIONARY;
+  static const LOGIN = _Paths.LOGIN;
+  static const SIGNMATE = _Paths.SIGNMATE;
+  static const INTERPRETER = _Paths.INTERPRETER;
+  static const PROFILE = _Paths.PROFILE;
 }
 
 abstract class _Paths {
@@ -17,4 +23,10 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const ONBOARDING = '/onboarding';
   static const SIGNSCAN = '/signscan';
+  static const SPEECH = '/speech';
+  static const DICTIONARY = '/dictionary';
+  static const LOGIN = '/login';
+  static const SIGNMATE = '/signmate';
+  static const INTERPRETER = '/interpreter';
+  static const PROFILE = '/profile';
 }

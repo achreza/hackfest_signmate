@@ -22,12 +22,10 @@ class Onboarding3View extends StatelessWidget {
         ),
         Container(
           width: 285.w,
-          child: Flexible(
-            child: Text(
-              'Improve your skill with the help of quizzes and more',
-              style: Theme.of(context).textTheme.headline1,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Improve your skill with the help of quizzes and more',
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(
@@ -35,12 +33,10 @@ class Onboarding3View extends StatelessWidget {
         ),
         Container(
           width: 300.w,
-          child: Flexible(
-            child: Text(
-              'Become more efficient in sign language by solving the daily quizzes in the app',
-              style: Theme.of(context).textTheme.headline2,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Become more efficient in sign language by solving the daily quizzes in the app',
+            style: Theme.of(context).textTheme.headline2,
+            textAlign: TextAlign.center,
           ),
         ),
       ],

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hackfest_signmate/app/modules/onboarding/views/onboarding_1.dart';
@@ -11,6 +12,7 @@ class OnboardingController extends GetxController
 
   final RxInt tabIndex = 0.obs;
   late TabController tabController;
+  final db = FirebaseFirestore.instance;
 
   void changeTab(int index) {
     tabIndex.value = index;
@@ -37,4 +39,11 @@ class OnboardingController extends GetxController
 
   @override
   void onClose() {}
+
+  List users = [];
+
+  Future getUsers() async {
+    var data = await db.collection('handsign').get();
+    users = data.docs;
+  }
 }
