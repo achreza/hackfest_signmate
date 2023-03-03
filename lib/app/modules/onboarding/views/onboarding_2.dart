@@ -21,12 +21,10 @@ class Onboarding2View extends StatelessWidget {
         ),
         Container(
           width: 240.w,
-          child: Flexible(
-            child: Text(
-              'Search and learn for the signs effortlessly',
-              style: Theme.of(context).textTheme.headline1,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Search and learn for the signs effortlessly',
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(
@@ -34,12 +32,10 @@ class Onboarding2View extends StatelessWidget {
         ),
         Container(
           width: 300.w,
-          child: Flexible(
-            child: Text(
-              'Just enter the related keywords about the sign in the search box and get instant search result',
-              style: Theme.of(context).textTheme.headline2,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Just enter the related keywords about the sign in the search box and get instant search result',
+            style: Theme.of(context).textTheme.headline2,
+            textAlign: TextAlign.center,
           ),
         ),
       ],

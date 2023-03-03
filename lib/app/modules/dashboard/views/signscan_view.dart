@@ -43,32 +43,44 @@ class _SignScanViewState extends State<SignScanView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Flexible(
-            flex: 8,
-            child: Container(
-                color: Colors.black,
-                child: CameraView(
-                  title: 'Object Detector',
-                  customPaint: _customPaint,
-                  text: _text,
-                  onImage: (inputImage) {
-                    processImage(inputImage);
-                  },
-                  onScreenModeChanged: _onScreenModeChanged,
-                  initialDirection: CameraLensDirection.back,
-                )),
-          ),
-          Flexible(
-            flex: 2,
-            child: Container(
-                color: Colors.black, child: Text(objekterdeteksi ?? '')),
-          ),
-        ],
-      ),
-    );
+    // return Scaffold(
+    //   body: Column(
+    //     children: [
+    // Flexible(
+    //   flex: 10,
+    //   child: Container(
+    //       color: Colors.black,
+    //       child: CameraView(
+    //         title: 'Object Detector',
+    //         customPaint: _customPaint,
+    //         text: _text,
+    //         onImage: (inputImage) {
+    //           processImage(inputImage);
+    //         },
+    //         onScreenModeChanged: _onScreenModeChanged,
+    //         initialDirection: CameraLensDirection.back,
+    //       )),
+    // ),
+    // Flexible(
+    //   flex: 2,
+    //   child: Container(
+    //       color: Colors.black, child: Text(objekterdeteksi ?? '')),
+    // ),
+    //     ],
+    //   ),
+    // );
+    return Container(
+        color: Colors.black,
+        child: CameraView(
+          title: 'Handsign Detector',
+          customPaint: _customPaint,
+          text: _text,
+          onImage: (inputImage) {
+            processImage(inputImage);
+          },
+          onScreenModeChanged: _onScreenModeChanged,
+          initialDirection: CameraLensDirection.back,
+        ));
   }
 
   void _onScreenModeChanged(ScreenMode mode) {

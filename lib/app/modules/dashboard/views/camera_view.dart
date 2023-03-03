@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
+import 'package:hackfest_signmate/constant.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:hackfest_signmate/main.dart';
@@ -85,6 +87,7 @@ class _CameraViewState extends State<CameraView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         title: Text(widget.title),
         actions: [
           if (_allowPicker)
@@ -116,6 +119,7 @@ class _CameraViewState extends State<CameraView> {
         height: 70.0,
         width: 70.0,
         child: FloatingActionButton(
+          backgroundColor: primaryColor,
           onPressed: _switchLiveCamera,
           child: Icon(
             Platform.isIOS
@@ -152,6 +156,7 @@ class _CameraViewState extends State<CameraView> {
     if (scale < 1) scale = 1 / scale;
 
     return Container(
+      height: Get.height,
       color: Colors.black,
       child: Stack(
         fit: StackFit.expand,
@@ -172,6 +177,9 @@ class _CameraViewState extends State<CameraView> {
             left: 50,
             right: 50,
             child: Slider(
+              thumbColor: primaryColor,
+              activeColor: darkColor,
+              inactiveColor: lightColor,
               value: zoomLevel,
               min: minZoomLevel,
               max: maxZoomLevel,
@@ -212,6 +220,11 @@ class _CameraViewState extends State<CameraView> {
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: primaryColor, width: 1),
+                  borderRadius: BorderRadius.circular(5))),
           child: Text('From Gallery'),
           onPressed: () => _getImage(ImageSource.gallery),
         ),
@@ -219,6 +232,11 @@ class _CameraViewState extends State<CameraView> {
       Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              backgroundColor: primaryColor,
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: primaryColor, width: 1),
+                  borderRadius: BorderRadius.circular(5))),
           child: Text('Take a picture'),
           onPressed: () => _getImage(ImageSource.camera),
         ),

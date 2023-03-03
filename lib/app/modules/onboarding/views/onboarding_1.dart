@@ -24,12 +24,10 @@ class Onboarding1View extends GetView<OnboardingController> {
         ),
         Container(
           width: 220.w,
-          child: Flexible(
-            child: Text(
-              'Learn the ISL anytime anywhere',
-              style: Theme.of(context).textTheme.headline1,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Learn the ISL anytime anywhere',
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(
@@ -37,12 +35,10 @@ class Onboarding1View extends GetView<OnboardingController> {
         ),
         Container(
           width: 300.w,
-          child: Flexible(
-            child: Text(
-              'You can learn about sign language anytime and anywhere only with a smartphone',
-              style: Theme.of(context).textTheme.headline2,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'You can learn about sign language anytime and anywhere only with a smartphone',
+            style: Theme.of(context).textTheme.headline2,
+            textAlign: TextAlign.center,
           ),
         ),
       ],

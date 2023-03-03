@@ -22,12 +22,10 @@ class Onboarding4View extends StatelessWidget {
         ),
         Container(
           width: 300.w,
-          child: Flexible(
-            child: Text(
-              'Let’s overcome the language barrier, Together',
-              style: Theme.of(context).textTheme.headline1,
-              textAlign: TextAlign.center,
-            ),
+          child: Text(
+            'Let’s overcome the language barrier, Together',
+            style: Theme.of(context).textTheme.headline1,
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(
