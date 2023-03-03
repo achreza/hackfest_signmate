@@ -14,11 +14,7 @@ class HomeView extends GetView<HomeController> {
             body: controller.pages[controller.currentIndex.value],
             bottomNavigationBar: BottomNavigationBar(
               onTap: (value) {
-                if (value == 2) {
-                  controller.logout();
-                } else {
-                  controller.changeTab(value);
-                }
+                controller.changeTab(value);
               },
               selectedItemColor: primaryColor,
               currentIndex: controller.currentIndex.value,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hackfest_signmate/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:hackfest_signmate/app/modules/dashboard/views/signscan_view.dart';
+import 'package:hackfest_signmate/app/modules/profile/views/profile_view.dart';
 import 'package:hackfest_signmate/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
@@ -26,14 +27,9 @@ class HomeController extends GetxController {
   List<Widget> pages = [
     DashboardView(),
     SignScanView(),
-    DashboardView(),
+    ProfileView(),
   ];
 
   final currentIndex = 0.obs;
   changeTab(int index) => currentIndex.value = index;
-
-  void logout() async {
-    await FirebaseAuth.instance.signOut();
-    Get.offAllNamed(Routes.LOGIN);
-  }
 }

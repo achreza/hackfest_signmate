@@ -12,6 +12,8 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/profile/bindings/profile_binding.dart';
+import '../modules/profile/views/profile_view.dart';
 import '../modules/signmate/bindings/signmate_binding.dart';
 import '../modules/signmate/views/signmate_view.dart';
 import '../modules/signscan/bindings/signscan_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.INTERPRETER,
       page: () => const InterpreterView(),
       binding: InterpreterBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
   ];
 }

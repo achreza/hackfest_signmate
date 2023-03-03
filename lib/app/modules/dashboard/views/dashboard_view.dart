@@ -124,11 +124,11 @@ class DashboardView extends GetView<DashboardController> {
                     color: Colors.black,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700))),
-        Container(
-            width: Get.width,
-            margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
-            padding: EdgeInsets.only(top: 30.h),
-            child: SignMate()),
+        // Container(
+        //     width: Get.width,
+        //     margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
+        //     padding: EdgeInsets.only(top: 30.h),
+        //     child: SignMate()),
       ],
     );
   }

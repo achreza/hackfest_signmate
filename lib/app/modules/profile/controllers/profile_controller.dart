@@ -1,16 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hackfest_signmate/app/routes/app_pages.dart';
 
-class DashboardController extends GetxController {
-  //TODO: Implement DashboardController
+class ProfileController extends GetxController {
+  //TODO: Implement ProfileController
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  final RxInt tabIndex = 0.obs;
-  late TabController tabController;
-  var user = [].obs;
+  final user = [].obs;
   final count = 0.obs;
-
   @override
   void onInit() {
     super.onInit();
@@ -23,12 +20,15 @@ class DashboardController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    super.onClose();
+  }
+
   void increment() => count.value++;
 
-  void changeTab(int index) {
-    tabIndex.value = index;
-    tabController.animateTo(index);
+  void logout() async {
+    await FirebaseAuth.instance.signOut();
+    Get.offAllNamed(Routes.LOGIN);
   }
 
   getUser() async {

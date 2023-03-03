@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:hackfest_signmate/app/modules/interpreter/controllers/interpreter_controller.dart';
+import 'package:hackfest_signmate/app/modules/interpreter/views/hire.dart';
 import 'package:hackfest_signmate/constant.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -43,43 +44,65 @@ class InterpreterView extends GetView<InterpreterController> {
               height: 20.h,
             ),
             Expanded(
-              child: ListView.builder(
-                itemBuilder: ((context, index) {
-                  return Card(
-                    shadowColor: Colors.grey,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    elevation: 2,
-                    child: ListTile(
-                        leading: Container(
-                          padding: EdgeInsets.all(5),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage:
-                                AssetImage('assets/images/profile.png'),
+                child: Obx(
+              () => controller.isLoading.value == true
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
+                    )
+                  : ListView.builder(
+                      itemBuilder: ((context, index) {
+                        return Card(
+                          shadowColor: Colors.grey,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                        ),
-                        title: Text('Interpreter 1',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 16.sp)),
-                        subtitle: Text('Available',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300, fontSize: 14.sp)),
-                        trailing: Container(
-                            padding: EdgeInsets.all(5),
-                            child: Center(child: Text('Hire')),
-                            width: 60.w,
-                            height: 30.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(40),
-                              color: primaryColor,
-                            ))),
-                  );
-                }),
-                itemCount: 10,
-              ),
-            )
+                          elevation: 2,
+                          child: ListTile(
+                              leading: Container(
+                                padding: EdgeInsets.all(5),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundImage:
+                                      AssetImage('assets/images/profile.png'),
+                                ),
+                              ),
+                              title: Text(
+                                  controller.interpreter[index]['nickname'],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16.sp)),
+                              subtitle: Text(
+                                  controller.interpreter[index]['education'],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 14.sp)),
+                              trailing: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => Hire(
+                                          interpreter:
+                                              controller.interpreter[index]),
+                                    ),
+                                  );
+                                },
+                                child: Container(
+                                    padding: EdgeInsets.all(5),
+                                    child: Center(child: Text('Hire')),
+                                    width: 60.w,
+                                    height: 30.h,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(40),
+                                      color: primaryColor,
+                                    )),
+                              )),
+                        );
+                      }),
+                      itemCount: controller.interpreter.length,
+                    ),
+            ))
           ],
         ),
       ),
