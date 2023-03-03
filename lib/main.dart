@@ -22,13 +22,28 @@ void main() async {
   FirebaseAuth auth = FirebaseAuth.instance;
   var page = '';
 
-  auth.authStateChanges().listen((User? user) {
-    if (user == null) {
-      page = AppPages.INITIAL;
-    } else {
-      page = AppPages.routes[0].name;
-    }
+  Future.delayed(Duration(seconds: 3), () {
+    auth.authStateChanges().listen((User? user) {
+      if (user == null) {
+        Get.offAllNamed(Routes.ONBOARDING);
+      } else {
+        Get.offAllNamed(Routes.HOME);
+      }
+    });
+    // if (auth.currentUser == null) {
+    //   Get.offAllNamed(Routes.ONBOARDING);
+    // } else {
+    //   Get.offAllNamed(Routes.HOME);
+    // }
   });
+  // auth.authStateChanges().listen((User? user) {
+  //   if (user == null) {
+  //     page = AppPages.INITIAL;
+  //   } else {
+  //     page = AppPages.routes[0].name;
+  //   }
+  // });
+
   runApp(ScreenUtilInit(
       designSize: Size(394, 916),
       builder: (context, child) {
@@ -36,7 +51,7 @@ void main() async {
           theme: themeData,
           debugShowCheckedModeBanner: false,
           title: "Application",
-          initialRoute: page,
+          initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
         );
       }));

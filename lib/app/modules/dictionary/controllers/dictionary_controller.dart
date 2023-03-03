@@ -10,12 +10,14 @@ class DictionaryController extends GetxController {
   final List youtubeTutorials = [].obs;
   final isLoadingYoutubeTutorials = true.obs;
   final List handsignAlphabet = [].obs;
+  final List handsignNumber = [].obs;
 
   @override
   void onInit() {
     super.onInit();
     getYoutubeTutorials();
     getAlphabet();
+    getNumber();
   }
 
   @override
@@ -55,6 +57,15 @@ class DictionaryController extends GetxController {
     handsignAlphabet.sort((a, b) => a['label'].compareTo(b['label']));
   }
 
+  getNumber() async {
+    final QuerySnapshot<Map<String, dynamic>> snapshot =
+        await firestore.collection('handsign_number').get();
+
+    handsignNumber.assignAll(snapshot.docs.map((e) => e.data()).toList());
+    handsignNumber
+        .sort((a, b) => a['label'].toString().compareTo(b['label'].toString()));
+  }
+
   insertAlphabetImage() async {
     //loop a to z
     // for (var i = 71; i <= 90; i++) {
@@ -88,5 +99,21 @@ class DictionaryController extends GetxController {
     // for (var item in listResult.items) {
     //   // print(item);
     // }
+  }
+
+  insertNumberImage() async {
+    //loop a to z
+    for (var i = 1; i <= 9; i++) {
+      final ref = FirebaseStorage.instance.ref().child('ASL_NUMBER/${i}.png');
+
+      // Get the download URL of the file
+      final downloadUrl = await ref.getDownloadURL();
+
+      await firestore
+          .collection('handsign_number')
+          .add({'label': i, 'image': downloadUrl}).then(
+              (value) => print('Number ${i} Added'));
+      print(downloadUrl);
+    }
   }
 }
