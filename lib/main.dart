@@ -30,19 +30,7 @@ void main() async {
         Get.offAllNamed(Routes.HOME);
       }
     });
-    // if (auth.currentUser == null) {
-    //   Get.offAllNamed(Routes.ONBOARDING);
-    // } else {
-    //   Get.offAllNamed(Routes.HOME);
-    // }
   });
-  // auth.authStateChanges().listen((User? user) {
-  //   if (user == null) {
-  //     page = AppPages.INITIAL;
-  //   } else {
-  //     page = AppPages.routes[0].name;
-  //   }
-  // });
 
   runApp(ScreenUtilInit(
       designSize: Size(394, 916),
