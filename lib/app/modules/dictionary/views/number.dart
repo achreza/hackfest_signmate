@@ -20,14 +20,14 @@ class Number extends StatelessWidget {
           ),
           centerTitle: false,
         ),
-        body: Obx(() => controller.handsignAlphabet.length == 0
+        body: Obx(() => controller.handsignNumber.length == 0
             ? Center(
                 child: CircularProgressIndicator(),
               )
             : Padding(
                 padding: EdgeInsets.only(top: 10.w, left: 10.w, right: 10.w),
                 child: GridView.builder(
-                    itemCount: controller.handsignAlphabet.length,
+                    itemCount: controller.handsignNumber.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 3 / 4,
                         mainAxisSpacing: 5,
@@ -52,7 +52,7 @@ class Number extends StatelessWidget {
                                       Border.all(color: primaryColor, width: 1),
                                   image: DecorationImage(
                                     image: NetworkImage(controller
-                                        .handsignAlphabet[index]['image']),
+                                        .handsignNumber[index]['image']),
                                     fit: BoxFit.cover,
                                   ),
                                 )),
@@ -60,7 +60,8 @@ class Number extends StatelessWidget {
                               height: 30.h,
                             ),
                             Text(
-                              controller.handsignAlphabet[index]['label'],
+                              controller.handsignNumber[index]['label']
+                                  .toString(),
                               style: Theme.of(context).textTheme.headline1,
                             ),
                           ],
