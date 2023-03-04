@@ -134,6 +134,9 @@ class LoginForm extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w300),
                 ),
+                SizedBox(
+                  height: 10.h,
+                ),
                 TextFormField(
                   controller: controller.passwordLogin,
                   validator: (value) {

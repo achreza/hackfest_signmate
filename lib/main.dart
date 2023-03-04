@@ -20,7 +20,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseAuth auth = FirebaseAuth.instance;
-  var page = '';
 
   Future.delayed(Duration(seconds: 3), () {
     auth.authStateChanges().listen((User? user) {
