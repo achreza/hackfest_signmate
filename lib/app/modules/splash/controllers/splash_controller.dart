@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:hackfest_signmate/app/routes/app_pages.dart';
 
 class SplashController extends GetxController {
   //TODO: Implement SplashController
@@ -7,6 +9,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    checkUser();
   }
 
   @override
@@ -17,4 +20,8 @@ class SplashController extends GetxController {
   @override
   void onClose() {}
   void increment() => count.value++;
+
+  checkUser() {
+    print('asd');
+  }
 }

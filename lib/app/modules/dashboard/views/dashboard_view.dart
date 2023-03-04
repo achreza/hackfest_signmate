@@ -41,7 +41,8 @@ class DashboardView extends GetView<DashboardController> {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: controller.user[0].displayName,
+                        text: controller.user[0].displayName ??
+                            controller.user[0].email,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.sp,
@@ -52,12 +53,17 @@ class DashboardView extends GetView<DashboardController> {
                   ),
                 ),
               ),
-              CircleAvatar(
-                radius: 30.r,
-                backgroundImage: NetworkImage(
-                  controller.user[0].photoURL,
-                ),
-              ),
+              controller.user[0].photoURL == null
+                  ? CircleAvatar(
+                      radius: 30.r,
+                      backgroundImage: AssetImage('assets/images/profile.png'),
+                    )
+                  : CircleAvatar(
+                      radius: 30.r,
+                      backgroundImage: NetworkImage(
+                        controller.user[0].photoURL,
+                      ),
+                    ),
             ],
           ),
         ),
@@ -145,7 +151,7 @@ class Features extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       crossAxisCount: 3,
       shrinkWrap: true,
-      crossAxisSpacing: 5,
+      crossAxisSpacing: 5.w,
       children: [
         FeatureItems(context, 'Dictionary', 'dictionary.png'),
         FeatureItems(context, 'SignMate', 'signmate.png'),

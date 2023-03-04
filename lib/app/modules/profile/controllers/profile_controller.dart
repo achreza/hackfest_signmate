@@ -34,5 +34,6 @@ class ProfileController extends GetxController {
   getUser() async {
     User? userLogin = _auth.currentUser;
     user.add(userLogin);
+    print(user);
   }
 }

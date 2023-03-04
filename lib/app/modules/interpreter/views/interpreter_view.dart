@@ -92,7 +92,7 @@ class InterpreterView extends GetView<InterpreterController> {
                                     padding: EdgeInsets.all(5),
                                     child: Center(child: Text('Hire')),
                                     width: 60.w,
-                                    height: 30.h,
+                                    height: 35.h,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(40),
                                       color: primaryColor,

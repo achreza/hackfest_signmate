@@ -18,27 +18,31 @@ class ProfileView extends GetView<ProfileController> {
             height: (Get.height * 0.3).h,
             color: primaryColor,
             padding: EdgeInsets.only(top: 70.h, left: 20.w, right: 20.w),
-            child: Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 50.r,
-                    backgroundImage: NetworkImage(
-                      controller.user[0].photoURL,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Text(
-                    controller.user[0].displayName,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w800, letterSpacing: 1),
-                  )
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                controller.user[0].photoURL == null
+                    ? CircleAvatar(
+                        radius: 50.r,
+                        backgroundImage:
+                            AssetImage('assets/images/profile.png'),
+                      )
+                    : CircleAvatar(
+                        radius: 50.r,
+                        backgroundImage: NetworkImage(
+                          controller.user[0].photoURL,
+                        ),
+                      ),
+                SizedBox(
+                  height: 20.h,
+                ),
+                Text(
+                  controller.user[0].displayName ?? controller.user[0].email,
+                  style:
+                      TextStyle(fontWeight: FontWeight.w800, letterSpacing: 1),
+                )
+              ],
             ),
           ),
           Container(
@@ -50,6 +54,76 @@ class ProfileView extends GetView<ProfileController> {
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Name',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1),
+                    ),
+                    Text(
+                      controller.user[0].displayName ?? '-',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Email',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1),
+                    ),
+                    Text(
+                      controller.user[0].email,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 25.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Phone Number',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1),
+                    ),
+                    Text(
+                      controller.user[0].phoneNumber ?? '-',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 1),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
           Container(
