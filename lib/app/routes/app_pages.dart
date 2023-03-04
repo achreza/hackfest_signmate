@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 
+import 'package:hackfest_signmate/app/modules/maps/bindings/maps_binding.dart';
+import 'package:hackfest_signmate/app/modules/maps/views/maps_view.dart';
+
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/dictionary/bindings/dictionary_binding.dart';
@@ -28,7 +31,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ONBOARDING;
+  static const INITIAL = Routes.MAPS;
 
   static final routes = [
     GetPage(
@@ -85,6 +88,11 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.MAPS,
+      page: () => MapsView(),
+      binding: MapsBinding(),
     ),
   ];
 }
