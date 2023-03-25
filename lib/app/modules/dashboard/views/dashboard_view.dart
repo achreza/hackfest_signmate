@@ -130,11 +130,11 @@ class DashboardView extends GetView<DashboardController> {
                     color: Colors.black,
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w700))),
-        // Container(
-        //     width: Get.width,
-        //     margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
-        //     padding: EdgeInsets.only(top: 30.h),
-        //     child: SignMate()),
+        Container(
+            width: Get.width,
+            margin: EdgeInsets.only(top: 555.h, left: 30.w, right: 30.w),
+            padding: EdgeInsets.only(top: 30.h),
+            child: SignMate()),
       ],
     );
   }
@@ -209,46 +209,71 @@ class SignMate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 1,
-      shrinkWrap: true,
-      crossAxisSpacing: 5,
-      children: [
-        FeatureItems(context, 'Dictionary', 'dictionary.png'),
-        FeatureItems(context, 'SignMate', 'signmate.png'),
-        FeatureItems(context, 'Interpreter', 'interpreter.png'),
-      ],
-    );
-  }
-
-  GestureDetector FeatureItems(context, text, image) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: primaryColor,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: 50.w,
-              height: 50.h,
-              child: Image.asset('assets/images/feature/${image}'),
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-                letterSpacing: 1,
-                color: Colors.white,
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          shadowColor: Colors.grey,
+          elevation: 4,
+          child: Container(
+            width: Get.width,
+            height: 200.h,
+            child: Stack(children: [
+              Column(
+                children: [
+                  Container(
+                    width: Get.width,
+                    height: 120.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        topRight: Radius.circular(10),
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/map.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: Get.width,
+                    height: 80.h,
+                    child: Center(
+                      child: Text(
+                        'SignMate Name',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-      ),
+              Positioned(
+                top: 90.h,
+                left: 130.w,
+                child: Container(
+                  width: 50.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(40.r),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/profile.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+            ]),
+          ),
+        );
+      },
+      itemCount: 5,
     );
   }
 }

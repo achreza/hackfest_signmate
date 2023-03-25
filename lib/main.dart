@@ -11,6 +11,9 @@ import 'package:hackfest_signmate/constant.dart';
 
 import 'app/routes/app_pages.dart';
 import 'firebase_options.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';
+import 'package:google_maps_flutter_android/google_maps_flutter_android.dart';
 
 List<CameraDescription> cameras = [];
 void main() async {
@@ -20,7 +23,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   FirebaseAuth auth = FirebaseAuth.instance;
-  var page = '';
 
   Future.delayed(Duration(seconds: 3), () {
     auth.authStateChanges().listen((User? user) {
